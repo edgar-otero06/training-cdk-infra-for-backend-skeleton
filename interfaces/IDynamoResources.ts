@@ -8,6 +8,7 @@ export enum DynamoTableKeys {
   EXAMPLES = 'examples',
   OUTBOX = 'outbox',
   OUTBOX_INTEGRATION_TEST = 'outbox-integration-test',
+  TRAINING = 'training-table',
 }
 
 export enum OutboxTableIndexes {
