@@ -3,9 +3,11 @@ import { SqsResources, SqsQueueKeys } from '../../interfaces/ISqsResources';
 import { SqsSubscription } from 'aws-cdk-lib/aws-sns-subscriptions';
 import { SnsResources, SNS_KEYS } from '../../interfaces/ISnsResources';
 import { ExampleEntityQueue } from './example/ExampleEntityQueue';
+import { TrainingEntityQueue } from './training/TrainingEntityQueue';
 
 export const TOPIC_TO_QUEUE_BINDING = {
   [SNS_KEYS.EXAMPLE_ENTITY]: [SqsQueueKeys.EXAMPLE_ENTITY],
+  [SNS_KEYS.TRAINING_ENTITY]: [SqsQueueKeys.TRAINING_ENTITY],
 };
 
 export class SqsStacks {
@@ -13,7 +15,7 @@ export class SqsStacks {
     const queues: SqsResources = {};
 
     queues[SqsQueueKeys.EXAMPLE_ENTITY] = ExampleEntityQueue.build(props);
-
+    queues[SqsQueueKeys.TRAINING_ENTITY] = TrainingEntityQueue.build(props);
     return queues;
   }
 
